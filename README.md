@@ -1,4 +1,4 @@
-# Danger HLint
+# Danger HLint [![Gem Version](https://badge.fury.io/rb/danger-hlint.svg)](https://badge.fury.io/rb/danger-hlint)
 
 A Danger plugin for [HLint](https://github.com/ndmitchell/hlint)
 
