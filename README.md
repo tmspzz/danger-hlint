@@ -30,7 +30,7 @@ names and values of the parameters to the `hlint.lint` method are handed over to
 For example, you can specify a hint file by calling
 
 ```ruby
-hlint.lint files hint: ".hlint.yaml" # pass false one comment
+hlint.lint files hint: ".hlint.yaml"
 ```
 
 To pass switches to the linter (like `--quiet`) specify `true` as the value in the call
