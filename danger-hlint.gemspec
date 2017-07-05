@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Hlint::VERSION
   spec.authors       = ['Tommaso Piazza']
   spec.email         = ['tommaso.piazza@gmail.com']
-  spec.description   = %q{A short description of danger-hlint.}
-  spec.summary       = %q{A longer description of danger-hlint.}
+  spec.description   = %q{A plugin for Danger System to run hlint.}
+  spec.summary       = %q{A plugin for Danger System to run hlint.}
   spec.homepage      = 'https://github.com/blender/danger-hlint'
   spec.license       = 'MIT'
 
