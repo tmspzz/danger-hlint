@@ -15,19 +15,15 @@ module Danger
         @hlint = @dangerfile.hlint
         allow(@hlint.git).to receive(:added_files).and_return([])
         allow(@hlint.git).to receive(:modified_files).and_return([])
-
       end
 
       # Some examples for writing tests
       # You should replace these with your own.
 
-      it "collects Warnings" do
-
+      it 'collects Warnings' do
         @hlint.lint([File.expand_path('spec/fixtures/HaskellTestFile.hs')], inline_mode: true)
-        expect(@hlint.warnings).to all(include({"severity" => 'Warning'}))
-
+        expect(@hlint.warnings).to all(include('severity' => 'Warning'))
       end
-
     end
   end
 end
