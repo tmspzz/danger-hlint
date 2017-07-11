@@ -1,32 +1,28 @@
 require 'shellwords'
 
 module Danger
-  # This is your plugin class. Any attributes or methods you expose here will
-  # be available from within your Dangerfile.
+  # Lint Haskell files inside your project using [HLint](https://github.com/ndmitchell/hlint)
   #
-  # To be published on the Danger plugins site, you will need to have
-  # the public interface documented. Danger uses [YARD](http://yardoc.org/)
-  # for generating documentation from your plugin source, and you can verify
-  # by running `danger plugins lint` or `bundle exec rake spec`.
+  # @example Lint a list of files
   #
-  # You should replace these comments with a public description of your library.
-  #
-  # @example Ensure people are well warned about merging on Mondays
-  #
-  #          danger_hlint.warn_on_mondays
+  #          danger_hlint.lint(["Lib.hs"], inline_mode: true:
   #
   # @see  blender/danger-hlint
-  # @tags monday, weekends, time, rattata
+  # @tags hlint, haskell
   #
   class DangerHlint < Plugin
-    # The path to the hint/ignore file used by hlint
+    # The list of suggestions found by hlint in JSON format
     #
     # @return   [String]
     attr_accessor :suggestions
 
+    # The list of warnings found by hlint in JSON format
+    #
     # @return [String]
     attr_accessor :warnings
 
+    # The list of errors found by hlint in JSON format
+    #
     # @return [String]
     attr_accessor :errors
 
