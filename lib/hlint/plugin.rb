@@ -23,7 +23,14 @@ module Danger
     # The path to the hint/ignore file used by hlint
     #
     # @return   [String]
-    attr_accessor :config_file
+    attr_accessor :suggestions
+
+    # @return [String]
+    attr_accessor :warnings
+
+
+    # @return [String]
+    attr_accessor :errors
 
     # Runs hlint on a list of files
     #
@@ -39,23 +46,23 @@ module Danger
                 .map { |lint_result| JSON.parse(lint_result).flatten }
                 .flatten
 
-      suggestions = issues.select { |issue| issue['severity'] == 'Suggestion' }
-      warnings = issues.select { |issue| issue['severity'] == 'Warning' }
-      errors = issues.select { |issue| issue['severity'] == 'Error' }
+      self.suggestions = issues.select { |issue| issue['severity'] == 'Suggestion' }
+      self.warnings = issues.select { |issue| issue['severity'] == 'Warning' }
+      self.errors = issues.select { |issue| issue['severity'] == 'Error' }
 
       if inline_mode
         # Reprt with inline comment
-        send_inline_comment(suggestions, "warn")
-        send_inline_comment(warnings, "warn")
-        send_inline_comment(errors, "fail")
+        send_inline_comment(self.suggestions, "warn")
+        send_inline_comment(self.warnings, "warn")
+        send_inline_comment(self.errors, "fail")
 
       else
         # Report if any suggestions, warnings or errors
         if suggestions.count > 0 || warnings.count > 0 || errors.count > 0
           message = "### hlint found issues\n\n"
-          message << markdown_issues(warnings, 'Suggestions') unless suggestions.empty?
-          message << markdown_issues(warnings, 'Warnings') unless warnings.empty?
-          message << markdown_issues(errors, 'Errors') unless errors.empty?
+          message << markdown_issues(self.warnings, 'Suggestions') unless suggestions.empty?
+          message << markdown_issues(self.warnings, 'Warnings') unless warnings.empty?
+          message << markdown_issues(self.errors, 'Errors') unless errors.empty?
           markdown message
         end
       end
