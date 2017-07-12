@@ -2,6 +2,8 @@
 
 A Danger plugin for [HLint](https://github.com/ndmitchell/hlint)
 
+Read a full how to at [http://allocinit.io/haskell/danger-and-hlint/](http://allocinit.io/haskell/danger-and-hlint/)
+
 ## Installation
 
 Add this line to your Gemfile:
