@@ -20,10 +20,18 @@ your `Dangerfile` under the `hlint` namespace.
 At the moment one single method is exposed: `hlint.lint`
 
 If you want the lint results to show in the diff instead of in the comments, you can use then `inline_mode` option.
-Violations that occur out of the diff will show in danger's fail or warn section.
+Violations that occur out of the diff will show in danger's fail or warn section. Here's a minimal example of what to add to your `Dangerfile` (read the inline comments):
 
 ```ruby
-hlint.lint files inline_mode: true
+# get all affected files by the changes in the current diff
+affected_files = git.added_files + git.modified_files
+
+# limit files to .hs files
+haskell_files = affected_files.select { |file| file.end_with?('.hs') }
+
+# run hlint on the files and comment inline in the PR
+hlint.lint haskell_files, inline_mode: true
+
 ```
 
 To pass other parameters to the linter just add them to the method call. The
