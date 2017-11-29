@@ -51,7 +51,7 @@ hlint.lint files quiet: true
 
 ## Warning
 
-When running `danger-hlint` on your CI server **(especially CircleCI 2.0)**` make sure that the `hlint` binary is in your `PATH`, else this plugin will silently fail to produce any linting output. One possibele way to do this (in CircleCI 2.0) is:
+When running `danger-hlint` on your CI server **(especially CircleCI 2.0)** make sure that the `hlint` binary is in your `PATH`, else this plugin will silently fail to produce any linting output. One possibele way to do this (in CircleCI 2.0) is:
 
 ```
       - run:
