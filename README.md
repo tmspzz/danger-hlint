@@ -41,6 +41,17 @@ To pass switches to the linter (like `--quiet`) specify `true` as the value in t
 hlint.lint files quiet: true
 ```
 
+## Warning
+
+When running `danger-hlint` on your CI server **(especially CircleCI 2.0)**` make sure that the `hlint` binary is in your `PATH`, else this plugin will silently fail to produce any linting output. One possibele way to do this (in CircleCI 2.0) is:
+
+```
+      - run:
+          name: "Running HLint (via danger-hlint)"
+          command: |
+            export PATH="$HOME/.local/bin:$PATH"
+            bundle exec danger
+```
 
 ## Development
 
