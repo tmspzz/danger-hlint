@@ -19,7 +19,7 @@ your `Dangerfile` under the `hlint` namespace.
 
 At the moment one single method is exposed: `hlint.lint`
 
-If you want the lint results to show in the diff instead of in the comments, you can use then `inline_mode` option.
+If you want the lint results to show in the diff instead of in the comments, you can use the `inline_mode` option.
 Violations that occur out of the diff will show in danger's fail or warn section. Here's a minimal example of what to add to your `Dangerfile` (read the inline comments):
 
 ```ruby
@@ -51,7 +51,7 @@ hlint.lint files quiet: true
 
 ## Warning
 
-When running `danger-hlint` on your CI server **(especially CircleCI 2.0)** make sure that the `hlint` binary is in your `PATH`, else this plugin will silently fail to produce any linting output. One possibele way to do this (in CircleCI 2.0) is:
+When running `danger-hlint` on your CI server **(especially CircleCI 2.0)** make sure that the `hlint` binary is in your `PATH`, else this plugin will silently fail to produce any linting output. One possible way to do this (in CircleCI 2.0) is:
 
 ```
       - run:
